@@ -336,11 +336,11 @@ function ProductList() {
           </div>
         </div>
       </div>
-      <div>
+      <div style={{marginLeft:"100px"}}>
         {plantsArray.map((plants, idx) => {
           return (
-            <React.Fragment style={{display: "flex", gap: "100px"}} key={plants["category"]}>
-              <div>{plants["category"]}</div>
+            <React.Fragment style={{display: "flex", gap: "1000px"}} key={plants["category"]}>
+              <h2 style={{marginBottom:"50px", marginTop:"50px"}} >{plants["category"]}</h2>
               {plants["plants"].map((plant) => (
                 <Plant
                   key={plant.name}
