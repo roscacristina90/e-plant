@@ -283,6 +283,7 @@ function ProductList() {
     e.preventDefault();
     setShowCart(false);
   };
+
   return (
     <div>
       <div className="navbar" style={styleObj}>
@@ -336,27 +337,32 @@ function ProductList() {
           </div>
         </div>
       </div>
-      <div style={{marginLeft:"100px"}}>
-        {plantsArray.map((plants, idx) => {
-          return (
-            <React.Fragment style={{display: "flex", gap: "1000px"}} key={plants["category"]}>
-              <h2 style={{marginBottom:"50px", marginTop:"50px"}} >{plants["category"]}</h2>
-              {plants["plants"].map((plant) => (
-                <Plant
-                  key={plant.name}
-                  name={plant.name}
-                  description={plant.description}
-                  cost={plant.cost}
-                  image={plant.image}
-                />
-              ))}
-            </React.Fragment>
-          );
-        })}
-      </div>
+
       {!showCart ? (
-        <div className="product-grid"></div>
+        <div style={{ marginLeft: "100px" }}>
+          {plantsArray.map((plants, idx) => {
+            return (
+              <React.Fragment
+                key={plants["category"]}
+              >
+                <h2 style={{ marginBottom: "25px", marginTop: "50px" }}>
+                  {plants["category"]}
+                </h2>
+                {plants["plants"].map((plant) => (
+                  <Plant
+                    key={plant.name}
+                    name={plant.name}
+                    description={plant.description}
+                    cost={plant.cost}
+                    image={plant.image}
+                  />
+                ))}
+              </React.Fragment>
+            );
+          })}
+        </div>
       ) : (
+   
         <CartItem onContinueShopping={handleContinueShopping} />
       )}
     </div>
